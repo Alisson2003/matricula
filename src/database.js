@@ -1,11 +1,18 @@
 import mongoose from 'mongoose'
+import dotenv from "dotenv";
+
+dotenv.config(); 
 
 mongoose.set('strictQuery', true)
 
 const connection = async()=>{
     try {
-        const {connection} = await mongoose.connect(process.env.MONGO_DB_URL)
-        console.log(`Database is connected on ${connection.host} - ${connection.port}`)
+        await mongoose.connect(process.env.MONGO_DB_URL,{
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+    })
+    console.log('Conexión a la base de datos exitosa');
+    
     } catch (error) {
         console.log(error);
     }
