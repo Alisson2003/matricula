@@ -15,7 +15,7 @@ const connection = async () => {
 
     } catch (error) {
         console.error("❌ Error de conexión a la DB:", error);
-        process.exit(1); // Cierra la app si falla
+        process.exit(1); // Detiene la app si falla la conexión
     }
 };
 
