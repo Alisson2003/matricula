@@ -8,6 +8,8 @@ import { Server } from 'socket.io'
 // Conectar a la base de datos
 connection()
 
+const PORT = process.env.PORT || 3000;
+
 const server = http.createServer(app)
 
 const io = new Server(server, {
@@ -23,7 +25,6 @@ io.on('connection', (socket) => {
     })
 })
 
-const PORT = process.env.PORT || 3000;
 
 server.listen(PORT, () => {
     console.log(`Servidor corriendo en http://localhost:${PORT}`);
