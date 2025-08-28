@@ -1,4 +1,7 @@
-import mongoose from 'mongoose' 
+import mongoose from 'mongoose'
+import dotenv from "dotenv";
+
+dotenv.config(); 
 
 mongoose.set('strictQuery', true)
 
@@ -9,7 +12,7 @@ const connection = async()=>{
     useUnifiedTopology: true
     })
     console.log('Conexión a la base de datos exitosa');
-
+    
     } catch (error) {
         console.log(error);
     }
