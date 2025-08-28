@@ -15,4 +15,10 @@ const connection = async()=>{
     }
 }
 
+// server.js o index.js
+console.log("PORT:", process.env.PORT);
+console.log("MONGO_DB_URL:", process.env.MONGO_DB_URL);
+console.log("FRONTEND_URL:", process.env.FRONTEND_URL);
+
+
 export default  connection

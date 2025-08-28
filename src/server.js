@@ -6,6 +6,10 @@ import routerEstudiante from './routers/estudiante_routes.js';
 import routerMateria from './routers/materia_routes.js';    
 import routerMatricula from './routers/matricula_routes.js';
 
+// server.js o index.js
+console.log("PORT:", process.env.PORT);
+console.log("MONGO_DB_URL:", process.env.MONGO_DB_URL);
+console.log("FRONTEND_URL:", process.env.FRONTEND_URL);
 
 
 // Inicializaciones
