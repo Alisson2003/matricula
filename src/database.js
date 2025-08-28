@@ -1,22 +1,18 @@
-import mongoose from 'mongoose';
+import mongoose from 'mongoose' 
 
-mongoose.set('strictQuery', true);
+mongoose.set('strictQuery', true)
 
-const connection = async () => {
+const connection = async()=>{
     try {
-        if (!process.env.MONGO_DB_URL) throw new Error("MONGO_DB_URL no definida");
-
-        const conn = await mongoose.connect(process.env.MONGO_DB_URL, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-        });
-
-        console.log(`✅ Conexión a DB exitosa: ${conn.connection.host}`);
+        await mongoose.connect(process.env.MONGO_DB_URL,{
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+    })
+    console.log('Conexión a la base de datos exitosa');
 
     } catch (error) {
-        console.error("❌ Error de conexión a la DB:", error);
-        process.exit(1); // Detiene la app si falla la conexión
+        console.log(error);
     }
-};
+}
 
-export default connection;
+export default  connection
