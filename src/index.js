@@ -11,7 +11,7 @@ const server = http.createServer(app)
 
 const io = new Server(server, {
     cors: {
-        origin: "http://localhost:5173"
+        origin: process.env.FRONTEND_URL || "*"
     }
 })
 
@@ -22,7 +22,7 @@ io.on('connection', (socket) => {
     })
 })
 
-const PORT = app.get('port');
+const PORT = process.env.PORT || 3000;
 
 server.listen(PORT, () => {
     console.log(`Servidor corriendo en http://localhost:${PORT}`);

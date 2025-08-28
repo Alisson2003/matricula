@@ -1,6 +1,5 @@
 // Requerir módulos
 import express from 'express'
-import dotenv from 'dotenv'
 import cors from 'cors';
 import routerUsuario from './routers/usuario_routes.js';  
 import routerEstudiante from './routers/estudiante_routes.js';    
@@ -11,7 +10,6 @@ import routerMatricula from './routers/matricula_routes.js';
 
 // Inicializaciones
 const app = express()
-dotenv.config()
 
 
 // Configuraciones 
