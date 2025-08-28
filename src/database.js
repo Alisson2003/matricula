@@ -1,24 +1,22 @@
-import mongoose from 'mongoose' 
+import mongoose from "mongoose";
+import dotenv from "dotenv";
 
-mongoose.set('strictQuery', true)
+dotenv.config(); 
 
-const connection = async()=>{
-    try {
-        await mongoose.connect(process.env.MONGO_DB_URL,{
+mongoose.set('strictQuery', true) //que sea extricta
+
+//conexion con la base
+const connection = async()=>{ 
+try{
+    await mongoose.connect(process.env.MONGO_DB_URL,{
     useNewUrlParser: true,
     useUnifiedTopology: true
-    })
-    console.log('Conexión a la base de datos exitosa');
-
-    } catch (error) {
-        console.log(error);
+});
+    console.log('✅ Conectado a MongoDB Atlas');
+}catch (error) {
+    console.error('❌ Error de conexión a MongoDB:', error.message);
+    process.exit(1);
     }
 }
 
-// server.js o index.js
-console.log("PORT:", process.env.PORT);
-console.log("MONGO_DB_URL:", process.env.MONGO_DB_URL);
-console.log("FRONTEND_URL:", process.env.FRONTEND_URL);
-
-
-export default  connection
+export default  connection;
