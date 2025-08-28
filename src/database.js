@@ -1,11 +1,7 @@
-import mongoose from "mongoose";
-import dotenv from "dotenv";
+import mongoose from 'mongoose';
 
-dotenv.config(); 
+mongoose.set('strictQuery', true);
 
-mongoose.set('strictQuery', true) //que sea extricta
-
-//conexion con la base
 const connection = async () => {
     try {
         if (!process.env.MONGO_DB_URL) throw new Error("MONGO_DB_URL no definida");
@@ -15,13 +11,12 @@ const connection = async () => {
             useUnifiedTopology: true,
         });
 
-        console.log(`Conexión a DB exitosa: ${conn.connection.host}`);
+        console.log(`✅ Conexión a DB exitosa: ${conn.connection.host}`);
 
     } catch (error) {
-        console.error("Error de conexión a la DB:", error);
-        process.exit(1); // Cierra la app si no puede conectar
+        console.error("❌ Error de conexión a la DB:", error);
+        process.exit(1); // Cierra la app si falla
     }
 };
 
-
-export default  connection;
+export default connection;
